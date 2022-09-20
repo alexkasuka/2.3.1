@@ -3,7 +3,6 @@ package web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import web.model.Person;
 import web.service.PeopleService;
@@ -12,7 +11,7 @@ import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping("/people")
+@RequestMapping("/")
 public class PeopleController {
 
     private final PeopleService peopleService;
@@ -26,9 +25,7 @@ public class PeopleController {
 
     @GetMapping()
     public String index(Model model) {
-
         model.addAttribute("people", peopleService.findAll());
-
         return "people/index";
     }
 
